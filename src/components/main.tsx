@@ -1,7 +1,7 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
-export default function Main({ fadeIn }: { fadeIn: any }) {
+export default function Main({ fadeIn }: { fadeIn: Variants }) {
   return (
     <motion.section
       id="main"

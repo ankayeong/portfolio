@@ -1,5 +1,6 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
+import Image from "next/image"
 import { FaStar, FaCodeBranch, FaEye } from "react-icons/fa"
 import { Repository } from "@/types/repo"
 
@@ -7,12 +8,8 @@ const cardHover = {
   hover: { scale: 1.05, y: -5, transition: { duration: 0.28 } },
 }
 
-export default function Projects({
-  fadeIn,
-  repos,
-  loading,
-}: {
-  fadeIn: any
+export default function Projects({fadeIn, repos, loading}: {
+  fadeIn: Variants
   repos: Repository[]
   loading: boolean
 }) {
@@ -36,7 +33,9 @@ export default function Projects({
           whileHover="hover"
         >
           <h3 className="text-xl font-bold mb-2 text-[#2563EB]">ASSIGNMENT</h3>
-          <img className="h-48 rounded-xl mb-4 object-cover" src="/class.png" alt="Class Example" />
+          <div className="relative h-48 mb-4 w-full rounded-xl overflow-hidden">
+            <Image src="/class.png" alt="Class Example" fill style={{ objectFit: 'cover' }} />
+          </div>
           <p className="text-gray-600 text-sm md:text-base">웹 보안 프로그래밍 수업 과제 예제</p>
         </motion.a>
 
@@ -55,7 +54,7 @@ export default function Projects({
               whileHover="hover"
             >
               <h3 className="text-xl font-bold mb-2 text-[#2563EB]">{repo.name}</h3>
-              <p className="text-gray-600 mb-4 line-clamp-3 text-sm md:text-base">{repo.description ?? "No description"}</p>
+              <p className="text-gray-600 mb-4 text-sm md:text-base">{repo.description}</p>
               <div className="flex justify-between text-gray-600 mt-auto text-sm">
                 <span className="flex items-center gap-1"><FaStar /> {repo.stargazers_count}</span>
                 <span className="flex items-center gap-1"><FaCodeBranch /> {repo.forks_count}</span>

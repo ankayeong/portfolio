@@ -1,8 +1,9 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { IoIosCall, IoIosMail } from "react-icons/io"
+import Image from "next/image"
 
-export default function Contact({ fadeIn }: { fadeIn: any }) {
+export default function Contact({ fadeIn }: { fadeIn: Variants }) {
   return (
     <motion.section
       id="contact"
@@ -21,13 +22,23 @@ export default function Contact({ fadeIn }: { fadeIn: any }) {
         </div>
 
         <div className="flex items-center gap-6">
-          <a className="flex items-center gap-2 hover:text-pink-500 transition-colors" href="https://www.instagram.com/young__034/" target="_blank" rel="noreferrer">
-            <img className="w-6" src="/Instagram_icon.png" alt="instagram" />
+          <a
+            className="flex items-center gap-2 hover:text-pink-500 transition-colors"
+            href="https://www.instagram.com/young__034/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src="/Instagram_icon.png" alt="instagram" width={24} height={24} />
             @young__034
           </a>
 
-          <a className="flex items-center gap-2 hover:text-gray-800 transition-colors" href="https://github.com/ankayeong?tab=repositories" target="_blank" rel="noreferrer">
-            <img className="w-6" src="/github.png" alt="github" />
+          <a
+            className="flex items-center gap-2 hover:text-gray-800 transition-colors"
+            href="https://github.com/ankayeong?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src="/github.png" alt="github" width={24} height={24} />
             ankayeong
           </a>
         </div>

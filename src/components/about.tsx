@@ -1,23 +1,31 @@
 "use client"
-import { motion } from "framer-motion"
+import { Variants, motion } from "framer-motion"
 import { FaUser, FaUniversity, FaBirthdayCake, FaHome, FaBrain } from "react-icons/fa"
+import Image from "next/image"
 
-export default function About({ fadeIn }: { fadeIn: any }) {
+
+export default function About({ fadeIn }: { fadeIn: Variants }) {
   return (
     <motion.section
       id="about"
-      className="max-w-5xl mx-auto p-6"
+      className="max-w-7xl mx-auto p-6"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={fadeIn}
     >
-      <motion.div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-100" whileHover={{ scale: 1.01 }}>
-        <h2 className="text-3xl md:text-4xl font-semibold text-center text-[#2563EB] mb-6">ABOUT ME</h2>
+      <motion.div className="bg-white backdrop-blur-sm p-8 rounded-2xl border border-gray-100">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center text-[#2563EB] mb-6">ABOUT</h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-8">
-          <motion.div className="lg:w-1/3 flex justify-center" whileHover={{ scale: 1.03 }}>
-            <img src="/default-image.jpg" alt="Profile" className="w-64 h-64 rounded-full object-cover" />
+          <motion.div className="lg:w-1/3 flex justify-center" whileHover={{ scale: 1.06 }}>
+            <Image
+              src="/default-image.jpg"
+              alt="Profile"
+              width={256}
+              height={256}
+              className="rounded-full object-cover"
+            />
           </motion.div>
 
           <div className="lg:w-2/3 space-y-6">
