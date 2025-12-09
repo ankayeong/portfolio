@@ -6,6 +6,7 @@ import { Repository } from "@/types/repo"
 import MainSection from "@/components/main"
 import ProfileSection from "@/components/profile"
 import ProjectsSection from "@/components/projects"
+import RepositoriesSection from "@/components/repositories"
 import TeamSection from "@/components/team"
 
 const username = "ankayeong"
@@ -52,7 +53,7 @@ export default function Home() {
 
       {/* 메뉴바 */}
       <nav className="sticky top-0 z-40 flex justify-center gap-8 py-4 bg-transparent backdrop-blur-sm">
-        {["main", "profile", "projects", "team"].map((section) => (
+        {["main", "profile", "projects", "repository", "team"].map((section) => (
           <button
             key={section}
             onClick={() => scrollToSection(section)}
@@ -67,7 +68,8 @@ export default function Home() {
       <main className="space-y-20 px-6 md:px-20 py-10">
         <MainSection fadeIn={fadeIn} />
         <ProfileSection fadeIn={fadeIn} />
-        <ProjectsSection fadeIn={fadeIn} repos={repos} loading={loading} />
+        <ProjectsSection fadeIn={fadeIn} />
+        <RepositoriesSection fadeIn={fadeIn} repos={repos} loading={loading} />
         <TeamSection fadeIn={fadeIn} />
       </main>
     </div>
