@@ -1,13 +1,12 @@
 "use client"
-import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { Repository } from "@/types/repo"
 
 // 섹션 불러오기
 import MainSection from "@/components/main"
-import AboutSection from "@/components/about"
+import ProfileSection from "@/components/profile"
 import ProjectsSection from "@/components/projects"
-import ContactSection from "@/components/contact"
+import TeamSection from "@/components/team"
 
 const username = "ankayeong"
 
@@ -53,7 +52,7 @@ export default function Home() {
 
       {/* 메뉴바 */}
       <nav className="sticky top-0 z-40 flex justify-center gap-8 py-4 bg-transparent backdrop-blur-sm">
-        {["main", "about", "projects", "contact"].map((section) => (
+        {["main", "profile", "projects", "team"].map((section) => (
           <button
             key={section}
             onClick={() => scrollToSection(section)}
@@ -67,9 +66,9 @@ export default function Home() {
       {/* 본문 */}
       <main className="space-y-20 px-6 md:px-20 py-10">
         <MainSection fadeIn={fadeIn} />
-        <AboutSection fadeIn={fadeIn} />
+        <ProfileSection fadeIn={fadeIn} />
         <ProjectsSection fadeIn={fadeIn} repos={repos} loading={loading} />
-        <ContactSection fadeIn={fadeIn} />
+        <TeamSection fadeIn={fadeIn} />
       </main>
     </div>
   )
